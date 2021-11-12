@@ -43,9 +43,4 @@ public class GridGenerator : MonoBehaviour
             }
         }
     }
-    
-    private void Update()
-    {
-        
-    }
 }
