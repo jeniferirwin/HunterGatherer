@@ -6,11 +6,12 @@ namespace HunterGatherer.PlayerInput
     {
         [SerializeField]
         private float moveSpeed;
-        private Vector2 moveInput;
+        private Vector3 moveInput;
 
         private void Update()
         {
-            moveInput = Vector2.zero;
+            moveInput = Vector3.zero;
+            if (!KeyboardInformation.anyKey) return;
 
             if (KeyboardInformation.leftPressed)
             {
@@ -28,11 +29,8 @@ namespace HunterGatherer.PlayerInput
             {
                 moveInput.y = -1;
             }
-        }
-
-        private void LateUpdate()
-        {
-            transform.Translate(moveInput * moveSpeed * Time.deltaTime, Space.World);
+            var target = transform.position + (moveInput * moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target, (moveSpeed * Time.deltaTime));
         }
     }
 }
