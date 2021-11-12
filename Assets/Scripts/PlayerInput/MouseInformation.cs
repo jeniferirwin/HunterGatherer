@@ -28,6 +28,8 @@ namespace HunterGatherer.PlayerInput
 
         public void OnMouseClick(InputAction.CallbackContext context)
         {
+            if (KeyboardInformation.anyKey) return;
+
             if (context.performed)
             {
                 MouseDownPerformed?.Invoke(this, EventArgs.Empty);

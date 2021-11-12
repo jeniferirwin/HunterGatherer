@@ -11,6 +11,7 @@ namespace HunterGatherer.PlayerInput
         public static bool rightPressed { get; private set; }
         public static bool upPressed { get; private set; }
         public static bool downPressed { get; private set; }
+        public static bool anyKey { get; private set; }
 
         public void OnWASD(InputAction.CallbackContext context)
         {
@@ -19,23 +20,27 @@ namespace HunterGatherer.PlayerInput
             rightPressed = false;
             upPressed = false;
             downPressed = false;
+            anyKey = false;
             if (value.x < 0)
             {
                 leftPressed = true;
+                anyKey = true;
             }
             else if (value.x > 0)
             {
-                Debug.Log("Right pressed");
                 rightPressed = true;
+                anyKey = true;
             }
             
             if (value.y < 0)
             {
                 downPressed = true;
+                anyKey = true;
             }
             else if (value.y > 0)
             {
                 upPressed = true;
+                anyKey = true;
             }
         }
     }
