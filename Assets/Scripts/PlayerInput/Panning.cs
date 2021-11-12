@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace HunterGatherer.PlayerInput
 {
@@ -9,15 +6,31 @@ namespace HunterGatherer.PlayerInput
     {
         [SerializeField]
         private float moveSpeed;
-
         private Vector2 moveInput;
 
-        public void OnWASD(InputAction.CallbackContext context)
+        private void Update()
         {
-            moveInput = context.ReadValue<Vector2>();
+            moveInput = Vector2.zero;
+
+            if (KeyboardInformation.leftPressed)
+            {
+                moveInput.x = -1;
+            }
+            if (KeyboardInformation.rightPressed)
+            {
+                moveInput.x = 1;
+            }
+            if (KeyboardInformation.upPressed)
+            {
+                moveInput.y = 1;
+            }
+            if (KeyboardInformation.downPressed)
+            {
+                moveInput.y = -1;
+            }
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             transform.Translate(moveInput * moveSpeed * Time.deltaTime, Space.World);
         }

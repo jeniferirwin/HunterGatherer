@@ -547,6 +547,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -562,6 +563,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 969a6366f0efa6f4bbf6c7c890d98564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 8
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -586,7 +600,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 5
   field of view: 60
   orthographic: 1
   orthographic size: 4.6875
@@ -775,6 +789,7 @@ GameObject:
   - component: {fileID: 1896052432}
   - component: {fileID: 1896052431}
   - component: {fileID: 1896052433}
+  - component: {fileID: 1896052434}
   m_Layer: 0
   m_Name: InputHandler
   m_TagString: Untagged
@@ -808,7 +823,20 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1896052434}
+        m_TargetAssemblyTypeName: HunterGatherer.PlayerInput.KeyboardInformation,
+          PlayerInput
+        m_MethodName: OnWASD
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ea462321-83fa-49f0-8c8c-47863d09ad28
     m_ActionName: Movement/Panning[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
@@ -872,6 +900,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ff6d3f3d615e75409020669b0cd4564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1896052434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1896052430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d58ffef9706632d4ea02bfa76d5abdf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1915258859
