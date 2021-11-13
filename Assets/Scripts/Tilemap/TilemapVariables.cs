@@ -18,11 +18,6 @@ public class TilemapVariables : MonoBehaviour
         PopulateCellArray();
     }
 
-    private void ShowCells()
-    {
-
-    }
-
     public void PopulateCellArray()
     {
         cells = new Vector3Int[width * height];
@@ -42,20 +37,6 @@ public class TilemapVariables : MonoBehaviour
 
     public CellData RandomizedCellData()
     {
-        var data = new CellData(Random.Range(1, 11));
-        Debug.Log($"{data.Amount}");
-        return data;
+        return new CellData(Random.Range(1, 11));
     }
-
-    private void OnDrawGizmos()
-    {
-        for (int i = 0; i < cells.Length; i++)
-        {
-            var pos = grid.CellToWorld(cells[i]);
-            //Gizmos.DrawIcon(pos,"RegisteredCell",true);
-            //Handles.Label(pos, cellData[i].Amount.ToString());
-            //Handles.Label(pos, i.ToString());
-        }
-    }
-    
 }
